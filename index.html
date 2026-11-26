@@ -188,7 +188,7 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
   'use strict';
 
   // ---------- Configuration ----------
-  var DEFAULTS = { lat: '45.5017', lon: '-73.5673', place: 'Montréal', key: '', days: '3', turl: 'https://us-central1-homeflow-2924f.cloudfunctions.net/tabletTasks', ttok: '' };
+  var DEFAULTS = { lat: '45.8084', lon: '-73.9796', place: 'Sainte-Sophie', key: '', days: '3', turl: 'https://us-central1-homeflow-2924f.cloudfunctions.net/tabletTasks', ttok: '' };
   var KEYS = ['lat', 'lon', 'place', 'key', 'days', 'turl', 'ttok'];
   var cfg = {};
   function loadCfg() {
@@ -307,9 +307,10 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
   var calData = null, calErr = '';
   function loadCal() {
     if (!cfg.key) { calErr = 'Touche ⚙︎ en bas à droite et entre la clé du calendrier.'; renderCal(); return; }
-    getJSON('cal-' + encodeURIComponent(cfg.key) + '.json?t=' + Date.now(), function (err, j, status) {
+    getJSON('cal-' + encodeURIComponent(cfg.key) + '.json?t=' + Date.now(), function (err, j) {
+      var status = err ? j : 200; // en cas d'erreur, getJSON passe le code HTTP en 2e argument
       if (err) {
-        calErr = status === 404 ? 'Calendrier introuvable : vérifie la clé dans les réglages.' : 'Calendrier : ' + err;
+        calErr = status === 404 ? 'Calendrier introuvable : la clé entrée dans ⚙︎ ne correspond pas au secret CLE_CALENDRIER.' : 'Calendrier : ' + err;
         if (!calData) renderCal();
         else $('calUpd').innerHTML = 'hors ligne · dernière version affichée';
         return;
@@ -344,11 +345,10 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
     box.className = 'row f1' + (n === 3 ? ' n3' : '');
     var html = '', k;
     for (k = 0; k < n; k++) {
-      var d = addDays(today, k), key = ymd(d), wx = dailyWx[key];
+      var d = addDays(today, k), key = ymd(d);
       var name = k === 0 ? 'Aujourd’hui' : k === 1 ? 'Demain' : cap(JOURS[d.getDay()]);
       html += '<div class="dcol f1 col' + (k === 0 ? ' today' : '') + '" data-d="' + key + '">' +
-        '<div class="dhead"><div class="dname">' + name + '</div><div class="dsub">' + d.getDate() + ' ' + MOIS[d.getMonth()] + '</div>' +
-        '<div class="dsub">' + (wx ? wx.i + ' ' + wx.max + '° / ' + wx.min + '°' + (wx.p >= 40 ? ' · 💧' + wx.p + ' %' : '') : '&nbsp;') + '</div></div><div class="evs f1">';
+        '<div class="dhead"><div class="dname">' + name + '</div></div><div class="evs f1">';
       var list = [], i;
       for (i = 0; i < calData.evenements.length; i++) if (calData.evenements[i].d === key) list.push(calData.evenements[i]);
       if (!list.length) html += '<div class="empty">Rien de prévu</div>';
