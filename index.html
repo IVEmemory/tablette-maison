@@ -83,10 +83,10 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
 #tasks { overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: 0; }
 .task { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-align: center; -webkit-align-items: center; align-items: center; padding: 9px 4px; border-bottom: 1px solid #eef3f9; cursor: pointer; }
 .task:last-child { border-bottom: 0; }
-.box { width: 32px; height: 32px; border-radius: 16px; border: 2px solid #4a90d9; margin-right: 12px; -webkit-flex: none; flex: none; text-align: center; line-height: 28px; font-size: 18px; color: #fff; -webkit-transition: background .2s; transition: background .2s; }
+.chk { width: 32px; height: 32px; border-radius: 16px; border: 2px solid #4a90d9; margin-right: 12px; -webkit-flex: none; flex: none; text-align: center; line-height: 28px; font-size: 18px; color: #fff; -webkit-transition: background .2s; transition: background .2s; }
 .task .tt { font-size: 18px; line-height: 1.25; }
 .task .tm2 { font-size: 13px; color: #64758a; margin-top: 2px; }
-.task.done .box { background: #4a90d9; }
+.task.done .chk { background: #4a90d9; }
 .task.done .tt { color: #a3b1c2; text-decoration: line-through; }
 .task.busy { opacity: .5; }
 .alldone { text-align: center; color: #4a90d9; font-size: 18px; margin-top: 20px; }
@@ -167,7 +167,7 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
     <label>Clé du calendrier</label>
     <input id="s_key" placeholder="la même que le secret CLE_CALENDRIER" autocapitalize="off" autocorrect="off">
     <label>Adresse de l’API des tâches HomeFlow</label>
-    <input id="s_turl" placeholder="https://us-central1-homeflow-2924f.cloudfunctions.net/tabletTasks" autocapitalize="off" autocorrect="off">
+    <input id="s_turl" placeholder="adresse de la fonction tabletTasks" autocapitalize="off" autocorrect="off">
     <label>Jeton de la tablette</label>
     <input id="s_ttok" type="password" placeholder="jeton réservé à la tablette" autocapitalize="off" autocorrect="off">
     <div class="hint">Vide = tâches de démonstration. Le jeton reste sur cet iPad seulement.</div>
@@ -188,7 +188,7 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
   'use strict';
 
   // ---------- Configuration ----------
-  var DEFAULTS = { lat: '45.5017', lon: '-73.5673', place: 'Montréal', key: '', days: '5', turl: '', ttok: '' };
+  var DEFAULTS = { lat: '45.5017', lon: '-73.5673', place: 'Montréal', key: '', days: '3', turl: 'https://us-central1-homeflow-2924f.cloudfunctions.net/tabletTasks', ttok: '' };
   var KEYS = ['lat', 'lon', 'place', 'key', 'days', 'turl', 'ttok'];
   var cfg = {};
   function loadCfg() {
@@ -504,7 +504,7 @@ html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -ap
       if (t.assignee) meta.push(esc(t.assignee));
       if (t.status === 'in_progress' && !t.checked) meta.push('<span style="color:#4a90d9">en cours</span>');
       html += '<div class="task' + (t.checked ? ' done' : '') + (busy[t.id] ? ' busy' : '') + '" data-id="' + esc(t.id) + '">' +
-        '<div class="box">' + (t.checked ? '✓' : '') + '</div><div class="f1">' +
+        '<div class="chk">' + (t.checked ? '✓' : '') + '</div><div class="f1">' +
         '<div class="tt">' + (t.icon ? esc(t.icon) + ' ' : '') + esc(t.title) + '</div>' + (meta.length ? '<div class="tm2">' + meta.join(' · ') + '</div>' : '') + '</div></div>';
     }
     if (total && !todo.length) html = '<div class="alldone">🎉 Tout est fait pour aujourd’hui !</div>' + html;
