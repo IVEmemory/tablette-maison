@@ -1,0 +1,65 @@
+# Met à jour la tablette : récupère le calendrier TimeTree et publie la page sur GitHub Pages.
+name: Tablette maison
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"   # toutes les 30 minutes (GitHub peut prendre quelques minutes de retard)
+  push:
+    branches: [main]
+  workflow_dispatch:          # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write             # pour le petit commit anti-mise-en-veille (voir plus bas)
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les outils
+        run: pip install timetree-exporter icalendar recurring-ical-events
+
+      - name: Récupérer le calendrier TimeTree
+        env:
+          TIMETREE_EMAIL: ${{ secrets.TIMETREE_EMAIL }}
+          TIMETREE_PASSWORD: ${{ secrets.TIMETREE_PASSWORD }}
+        run: timetree-exporter -c "${{ secrets.TIMETREE_CALENDAR_CODE }}" -o timetree.ics
+
+      - name: Préparer le site
+        run: |
+          mkdir -p site
+          cp index.html site/
+          python scripts/convertir.py timetree.ics "site/cal-${{ secrets.CLE_CALENDRIER }}.json"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploiement
+        uses: actions/deploy-pages@v4
+
+      # GitHub met en pause les tâches planifiées d'un dépôt public sans activité depuis 60 jours.
+      # Ce petit commit vide, fait au plus une fois toutes les 50 jours, garde la tâche active.
+      - name: Garder la tâche active
+        run: |
+          dernier=$(git log -1 --format=%ct)
+          if [ $(( $(date +%s) - dernier )) -gt $(( 50 * 86400 )) ]; then
+            git config user.name "tablette-bot"
+            git config user.email "tablette-bot@users.noreply.github.com"
+            git commit --allow-empty -m "Garder la tâche planifiée active [skip ci]"
+            git push
+          fi

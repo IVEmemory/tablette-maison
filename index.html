@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maison</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Maison">
+<meta name="theme-color" content="#eef4fb">
+<meta name="robots" content="noindex">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEDUlEQVR4Xu3cwW1TQRSGUQdFNEILdEIDSNSFRAN0Qgs0kG12KAuEjIwTxybXnjtzZ945a7B58/58IS+Bu4fHpx285p1j4RzjwDiIUw6UgzjlQDmIUw6UgzjlQDmIUw6UgzjlQDmIUw6UgzjlQDmIUw6Ug7j7+G8h1/vvH8+9wa9PP3Lf+7k7/zShiAubONVnJcYxXmgWx7InYhwjXT2LPhPx1cowTZax2zV7nVPGMUarZey1fbUD4xgg415mvKZx9JZxF5P6YRzPfP76M3UsecvI2Idx/LNfRt4+spfRfB/G8dfxJvL2MRfj+ON0Dc330ScbbeNhHGd30Hwf09n6OC4voNU+emajYTy2+13ZN974/S/79uXDdB/3t9toOd64jIPor1/DFsdx3Z2+7nflPdv+r9s/l21uHFff49RHIDVtaxy3LGPv9leYyIbG0eq+tnqd+rYyjrZ3tO2rlbWJcWTcy4zXrGb9ceTdxbxXLmLxcWTfv+zXH2vlcfS5c33eZYg1f/p8yA278Ij99udRV7j9Hy4sWI4hy1jyEchq4xi1jCUfkS01jrHLuLCP2wsf1eQd1xlHhWUs1o9FxlFnGef20eRD+Y1avdcK46i2jGX6Mf04ai7j1X20+oC+rOG7zD2OyssYso+Gy9jtZh5H/WV03kfbZUw8jlmW0W0fzZex2034+HyuWbxw/Ii94TP1jGXMV46pl/HiEXurO9rqdU7N9I232Zdx8OJbdFcnJG8We9OMY5ll7J1+Czc0kexZzDSOxZZxbh97/h/SgCWXcXkfRVR/CLbwMur/CEjpcay9jL3K11h3HJVPra2yV1p0HGXPK0nN6604jponla3gVdd6zlHwgPqr8x/FFCqHZVT7K2qVcVjGsSKnUWIcRc6ilApnMn4cFU6hpuEnM3gcw6+/uLHnM3IcY698FgNPadg4Bl7zdEad1ZhxjLraeQ05sQHjGHKdC+h/br3H0f8KV9L59Po9Pu98YWvr84i9Uzkso60+59ljHH2uZGs6nGr6ODpcw2Zln23uOLL/9KSecOI4Uv/cHOSdc7+vVi7Lu8JJ9fl65LLEcjA74+As48A4iFMOlIM45UA5iFMOlIM45UA5iFMOlIM45UA5iFMOlIM45UA5iFMOzrrfztk0/HnujfysvHLg7xzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzE3T08PsV/F5vg0wo+rRCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHcb8ByaBA9jsMTMkAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEDUlEQVR4Xu3cwW1TQRSGUQdFNEILdEIDSNSFRAN0Qgs0kG12KAuEjIwTxybXnjtzZ945a7B58/58IS+Bu4fHpx285p1j4RzjwDiIUw6UgzjlQDmIUw6UgzjlQDmIUw6UgzjlQDmIUw6UgzjlQDmIUw6Ug7j7+G8h1/vvH8+9wa9PP3Lf+7k7/zShiAubONVnJcYxXmgWx7InYhwjXT2LPhPx1cowTZax2zV7nVPGMUarZey1fbUD4xgg415mvKZx9JZxF5P6YRzPfP76M3UsecvI2Idx/LNfRt4+spfRfB/G8dfxJvL2MRfj+ON0Dc330ScbbeNhHGd30Hwf09n6OC4voNU+emajYTy2+13ZN974/S/79uXDdB/3t9toOd64jIPor1/DFsdx3Z2+7nflPdv+r9s/l21uHFff49RHIDVtaxy3LGPv9leYyIbG0eq+tnqd+rYyjrZ3tO2rlbWJcWTcy4zXrGb9ceTdxbxXLmLxcWTfv+zXH2vlcfS5c33eZYg1f/p8yA278Ij99udRV7j9Hy4sWI4hy1jyEchq4xi1jCUfkS01jrHLuLCP2wsf1eQd1xlHhWUs1o9FxlFnGef20eRD+Y1avdcK46i2jGX6Mf04ai7j1X20+oC+rOG7zD2OyssYso+Gy9jtZh5H/WV03kfbZUw8jlmW0W0fzZex2034+HyuWbxw/Ii94TP1jGXMV46pl/HiEXurO9rqdU7N9I232Zdx8OJbdFcnJG8We9OMY5ll7J1+Czc0kexZzDSOxZZxbh97/h/SgCWXcXkfRVR/CLbwMur/CEjpcay9jL3K11h3HJVPra2yV1p0HGXPK0nN6604jponla3gVdd6zlHwgPqr8x/FFCqHZVT7K2qVcVjGsSKnUWIcRc6ilApnMn4cFU6hpuEnM3gcw6+/uLHnM3IcY698FgNPadg4Bl7zdEad1ZhxjLraeQ05sQHjGHKdC+h/br3H0f8KV9L59Po9Pu98YWvr84i9Uzkso60+59ljHH2uZGs6nGr6ODpcw2Zln23uOLL/9KSecOI4Uv/cHOSdc7+vVi7Lu8JJ9fl65LLEcjA74+As48A4iFMOlIM45UA5iFMOlIM45UA5iFMOlIM45UA5iFMOlIM45UA5iFMOzrrfztk0/HnujfysvHLg7xzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzEKQfKQZxyoBzE3T08PsV/F5vg0wo+rRCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHccqBchCnHCgHcb8ByaBA9jsMTMkAAAAASUVORK5CYII=">
+<style>
+/* Écrit pour les vieux Safari (iOS 9+) : pas de CSS grid, flexbox préfixé, JavaScript ES5 */
+* { box-sizing: border-box; -webkit-box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: #eef4fb; color: #1d2b3a; font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; overflow: hidden; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; }
+.row { display: -webkit-box; display: -webkit-flex; display: flex; }
+.col { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: vertical; -webkit-flex-direction: column; flex-direction: column; }
+.f1 { -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; min-width: 0; }
+.f2 { -webkit-box-flex: 2; -webkit-flex: 2; flex: 2; min-width: 0; }
+.mid { -webkit-box-align: center; -webkit-align-items: center; align-items: center; }
+#app { height: 100%; padding: 14px; padding-top: 20px; }
+.card { background: #ffffff; border: 1px solid #dde8f4; border-radius: 16px; padding: 14px 18px; margin: 6px; position: relative; overflow: hidden; box-shadow: 0 2px 10px rgba(40,90,150,.07); }
+.lbl { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: #4a90d9; margin-bottom: 8px; }
+.muted { color: #64758a; }
+#clock { color: #24476b; font-size: 96px; font-weight: 200; letter-spacing: -3px; line-height: 1; }
+#clock .sec { font-size: 32px; color: #64758a; letter-spacing: 0; margin-left: 6px; }
+#date { font-size: 24px; margin-top: 6px; }
+#greet { font-size: 15px; margin-top: 4px; color: #64758a; }
+#wIcon { font-size: 56px; line-height: 1; margin-right: 14px; }
+#wTemp { font-size: 56px; font-weight: 200; line-height: 1; }
+.kv { font-size: 15px; margin-top: 5px; }
+.kv b { font-weight: 500; color: #1d2b3a; }
+
+/* Calendrier */
+#cal { min-height: 0; }
+.dcol { padding: 0 10px; border-left: 1px solid #dde8f4; min-width: 0; overflow: hidden; }
+.dcol:first-child { border-left: 0; padding-left: 0; }
+.dhead { padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid #dde8f4; white-space: nowrap; overflow: hidden; }
+.dname { font-size: 20px; font-weight: 500; }
+.dcol.today .dname { color: #2f80d1; }
+.dsub { font-size: 14px; color: #64758a; margin-top: 2px; }
+.ev { border-left: 4px solid #2f80d1; padding: 4px 0 4px 10px; margin-bottom: 8px; }
+.ev .tm { font-size: 14px; color: #64758a; }
+.ev .ti { font-size: 18px; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.ev.past { opacity: .4; }
+.ev.now { background: rgba(74,144,217,.14); }
+.ev.allday { background: #eef5fd; border-radius: 0 6px 6px 0; }
+.evs { overflow: hidden; min-height: 0; }
+.more { font-size: 14px; color: #64758a; }
+.empty { font-size: 16px; color: #a3b1c2; margin-top: 6px; }
+.n3 .dname { font-size: 24px; }
+.n3 .ev .ti { font-size: 22px; }
+.n3 .ev .tm { font-size: 16px; }
+#calMsg { font-size: 16px; color: #64758a; }
+#calUpd { position: absolute; right: 18px; top: 14px; font-size: 12px; color: #a3b1c2; }
+
+#chart { display: block; position: absolute; left: 0; top: 0; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 6px; margin-right: 8px; vertical-align: middle; }
+#gear { position: absolute; right: 14px; bottom: 10px; font-size: 22px; color: #cfdcea; z-index: 5; padding: 10px; }
+#status { position: absolute; left: 24px; bottom: 14px; font-size: 11px; color: #8696a8; z-index: 5; }
+#night { position: fixed; left: 0; top: 0; right: 0; bottom: 0; background: #000; opacity: 0; pointer-events: none; -webkit-transition: opacity 3s; transition: opacity 3s; z-index: 8; }
+#settings { display: none; position: fixed; left: 0; top: 0; right: 0; bottom: 0; background: rgba(30,50,80,.35); z-index: 10; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+#settings .box { max-width: 560px; margin: 40px auto; background: #ffffff; border-radius: 16px; padding: 24px; border: 1px solid #cfdcea; }
+#settings h2 { font-weight: 400; margin-bottom: 4px; }
+#settings label { display: block; font-size: 13px; color: #64758a; margin: 14px 0 4px; }
+#settings input { width: 100%; font-size: 16px; padding: 10px; border-radius: 8px; border: 1px solid #cfdcea; background: #eef4fb; color: #1d2b3a; -webkit-appearance: none; }
+#settings .two input { width: 48%; display: inline-block; }
+#settings .seg button { margin: 0 8px 0 0; }
+#settings .seg button.on { background: #4a90d9; }
+#settings .btns { margin-top: 22px; text-align: right; }
+#settings button { font-size: 17px; padding: 10px 20px; border-radius: 8px; border: 0; margin-left: 8px; background: #cfdcea; color: #1d2b3a; -webkit-appearance: none; }
+#settings button.pri, #settings .seg button.on { background: #2f80d1; color: #fff; }
+#settings .hint { font-size: 12px; color: #8696a8; margin-top: 4px; }
+/* Tâches du jour */
+#taskCard { width: 300px; -webkit-box-flex: 0; -webkit-flex: none; flex: none; }
+#taskCount { font-size: 15px; color: #64758a; }
+#taskCount b { font-size: 28px; font-weight: 300; color: #24476b; }
+#taskBar { height: 6px; background: #e3edf8; border-radius: 3px; margin: 8px 0 10px; overflow: hidden; }
+#taskFill { height: 6px; width: 0; background: #4a90d9; border-radius: 3px; -webkit-transition: width .4s; transition: width .4s; }
+#tasks { overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: 0; }
+.task { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-align: center; -webkit-align-items: center; align-items: center; padding: 9px 4px; border-bottom: 1px solid #eef3f9; cursor: pointer; }
+.task:last-child { border-bottom: 0; }
+.box { width: 32px; height: 32px; border-radius: 16px; border: 2px solid #4a90d9; margin-right: 12px; -webkit-flex: none; flex: none; text-align: center; line-height: 28px; font-size: 18px; color: #fff; -webkit-transition: background .2s; transition: background .2s; }
+.task .tt { font-size: 18px; line-height: 1.25; }
+.task .tm2 { font-size: 13px; color: #64758a; margin-top: 2px; }
+.task.done .box { background: #4a90d9; }
+.task.done .tt { color: #a3b1c2; text-decoration: line-through; }
+.task.busy { opacity: .5; }
+.alldone { text-align: center; color: #4a90d9; font-size: 18px; margin-top: 20px; }
+@media (orientation: portrait) {
+  #main { -webkit-box-orient: vertical; -webkit-flex-direction: column; flex-direction: column; }
+  #taskCard { width: auto; max-height: 330px; }
+  #bottom { -webkit-flex-wrap: wrap; flex-wrap: wrap; }
+  #bottom > .card { min-width: 45%; }
+}
+@media (max-width: 700px) {
+  html, body { overflow: auto; height: auto; }
+  #app { height: auto; padding: 6px; }
+  #top { -webkit-flex-wrap: wrap; flex-wrap: wrap; }
+  #top > .card { min-width: 100%; }
+  #main { -webkit-box-orient: vertical; -webkit-flex-direction: column; flex-direction: column; }
+  #taskCard { width: auto; max-height: none; }
+  #clock { font-size: 72px; }
+  #cal { -webkit-box-orient: vertical; -webkit-flex-direction: column; flex-direction: column; }
+  .dcol, .dcol:first-child { padding: 10px 0 0; border-left: 0; border-top: 1px solid #dde8f4; }
+  .dcol:first-child { border-top: 0; padding-top: 0; }
+  .evs { overflow: visible; }
+  .n3 .dname { font-size: 20px; } .n3 .ev .ti { font-size: 18px; }
+  #calUpd { position: static; margin-bottom: 6px; }
+}
+</style>
+</head>
+<body>
+<div id="app" class="col">
+
+  <div id="top" class="row">
+    <div class="card f2">
+      <div id="clock">--:--</div>
+      <div id="date">&nbsp;</div>
+      <div id="greet">&nbsp;</div>
+    </div>
+    <div class="card f1">
+      <div class="lbl" id="wPlace">Météo</div>
+      <div class="row mid">
+        <div id="wIcon">·</div>
+        <div><div id="wTemp">--°</div><div id="wDesc" class="muted">Chargement…</div></div>
+      </div>
+      <div class="kv muted">Ressenti <b id="wFeel">--</b> · Vent <b id="wWind">--</b></div>
+      <div class="kv muted">Soleil <b id="sunR">--</b> → <b id="sunS">--</b> · <span id="moonI">🌙</span> <b id="moon">--</b></div>
+    </div>
+  </div>
+
+  <div id="main" class="row f1" style="min-height:0;">
+   <div id="leftCol" class="col f1" style="min-height:0;">
+    <div id="calCard" class="card f1 col">
+      <div class="lbl">Calendrier familial</div>
+      <div id="calUpd"></div>
+      <div id="cal" class="row f1"><div id="calMsg">Chargement…</div></div>
+    </div>
+    <div id="chartCard" class="card col">
+      <div class="lbl">Prochaines 24 heures</div>
+      <div id="chartBox" style="height:110px;position:relative;"><canvas id="chart"></canvas></div>
+    </div>
+   </div>
+    <div id="taskCard" class="card col">
+      <div class="lbl">Tâches du jour <span id="taskDemo" style="color:#d08a1c"></span></div>
+      <div id="taskCount"></div>
+      <div id="taskBar"><div id="taskFill"></div></div>
+      <div id="tasks" class="f1"></div>
+    </div>
+  </div>
+</div>
+
+<div id="status"></div>
+<div id="gear">⚙︎</div>
+<div id="night"></div>
+
+<div id="settings">
+  <div class="box">
+    <h2>Réglages</h2>
+    <div class="hint">Enregistrés sur cet appareil seulement.</div>
+    <label>Nombre de jours affichés dans le calendrier</label>
+    <div class="seg"><button id="s_n3">3 jours</button><button id="s_n5">5 jours</button></div>
+    <label>Clé du calendrier</label>
+    <input id="s_key" placeholder="la même que le secret CLE_CALENDRIER" autocapitalize="off" autocorrect="off">
+    <label>Adresse de l’API des tâches HomeFlow</label>
+    <input id="s_turl" placeholder="https://us-central1-homeflow-2924f.cloudfunctions.net/tabletTasks" autocapitalize="off" autocorrect="off">
+    <label>Jeton de la tablette</label>
+    <input id="s_ttok" type="password" placeholder="jeton réservé à la tablette" autocapitalize="off" autocorrect="off">
+    <div class="hint">Vide = tâches de démonstration. Le jeton reste sur cet iPad seulement.</div>
+    <label>Nom du lieu</label>
+    <input id="s_place" placeholder="Montréal">
+    <label>Latitude, longitude</label>
+    <div class="two"><input id="s_lat" placeholder="45.5017"> <input id="s_lon" placeholder="-73.5673"></div>
+    <div class="hint">Dans Plans, touche longuement ta maison : les coordonnées s’affichent.</div>
+    <div class="btns">
+      <button id="s_cancel">Annuler</button>
+      <button id="s_save" class="pri">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------- Configuration ----------
+  var DEFAULTS = { lat: '45.5017', lon: '-73.5673', place: 'Montréal', key: '', days: '5', turl: '', ttok: '' };
+  var KEYS = ['lat', 'lon', 'place', 'key', 'days', 'turl', 'ttok'];
+  var cfg = {};
+  function loadCfg() {
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem('tabletteMaison') || '{}') || {}; } catch (e) {}
+    for (var i = 0; i < KEYS.length; i++) cfg[KEYS[i]] = saved[KEYS[i]] || DEFAULTS[KEYS[i]];
+  }
+  function saveCfg() { try { localStorage.setItem('tabletteMaison', JSON.stringify(cfg)); } catch (e) {} }
+
+  // ---------- Utilitaires ----------
+  function $(id) { return document.getElementById(id); }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function hhmm(d) { return pad(d.getHours()) + ':' + pad(d.getMinutes()); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function addDays(d, n) { return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n); }
+  var JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  var MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  function getJSON(url, cb) {
+    var r = new XMLHttpRequest();
+    r.open('GET', url, true);
+    r.timeout = 20000;
+    r.onreadystatechange = function () {
+      if (r.readyState !== 4) return;
+      if (r.status >= 200 && r.status < 300) {
+        var d; try { d = JSON.parse(r.responseText); } catch (e) { return cb('réponse invalide'); }
+        cb(null, d);
+      } else { cb(r.status ? 'erreur ' + r.status : 'pas de connexion', r.status); }
+    };
+    r.ontimeout = function () { cb('délai dépassé'); };
+    r.send();
+  }
+  // "2026-11-25T14:00" ou "2026-11-25" -> Date locale (le vieux Safari lit mal ces formats)
+  function parseLocal(s) {
+    var p = s.split(/[-T:+]/);
+    return new Date(+p[0], +p[1] - 1, +p[2], +(p[3] || 0), +(p[4] || 0));
+  }
+
+  // ---------- Horloge ----------
+  var wakeUntil = 0, lastDay = -1;
+  function tickClock() {
+    var d = new Date(), h = d.getHours();
+    $('clock').innerHTML = pad(h) + ':' + pad(d.getMinutes()) + '<span class="sec">' + pad(d.getSeconds()) + '</span>';
+    $('date').innerHTML = cap(JOURS[d.getDay()]) + ' ' + d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear();
+    var g = h < 5 ? 'Bonne nuit' : h < 12 ? 'Bonjour' : h < 18 ? 'Bon après-midi' : 'Bonsoir';
+    var xmas = new Date(d.getFullYear(), 11, 25);
+    if (d > new Date(d.getFullYear(), 11, 26)) xmas = new Date(d.getFullYear() + 1, 11, 25);
+    var toX = Math.ceil((xmas - d) / 86400000);
+    $('greet').innerHTML = g + (toX <= 0 ? ' · Joyeux Noël 🎄' : toX <= 60 ? ' · Noël dans ' + toX + ' jours' : '');
+    $('night').style.opacity = ((h >= 23 || h < 6) && Date.now() > wakeUntil) ? '0.85' : '0';
+    if (d.getSeconds() === 0) renderCal(); // passé / en cours se met à jour chaque minute
+    if (d.getDate() !== lastDay) { var first = lastDay === -1; lastDay = d.getDate(); renderCal(); if (!first) loadTasks(); }
+  }
+
+  // ---------- Météo (Open-Meteo : gratuit, sans clé) ----------
+  var WMO = {
+    0: ['☀️', 'Ciel dégagé'], 1: ['🌤', 'Peu nuageux'], 2: ['⛅️', 'Partiellement nuageux'], 3: ['☁️', 'Couvert'],
+    45: ['🌫', 'Brouillard'], 48: ['🌫', 'Brouillard givrant'],
+    51: ['🌦', 'Bruine légère'], 53: ['🌦', 'Bruine'], 55: ['🌧', 'Bruine forte'],
+    56: ['🌧', 'Bruine verglaçante'], 57: ['🌧', 'Bruine verglaçante'],
+    61: ['🌧', 'Pluie faible'], 63: ['🌧', 'Pluie'], 65: ['🌧', 'Pluie forte'],
+    66: ['🧊', 'Pluie verglaçante'], 67: ['🧊', 'Pluie verglaçante forte'],
+    71: ['🌨', 'Neige faible'], 73: ['🌨', 'Neige'], 75: ['❄️', 'Neige forte'], 77: ['🌨', 'Grains de neige'],
+    80: ['🌦', 'Averses'], 81: ['🌧', 'Averses'], 82: ['⛈', 'Fortes averses'],
+    85: ['🌨', 'Averses de neige'], 86: ['❄️', 'Fortes averses de neige'],
+    95: ['⛈', 'Orage'], 96: ['⛈', 'Orage et grêle'], 99: ['⛈', 'Orage et grêle']
+  };
+  function wmo(c, night) {
+    var w = WMO[c] || ['·', '—'];
+    if (night && (c === 0 || c === 1)) return ['🌙', w[1]];
+    return w;
+  }
+
+  var hours = [], dailyWx = {}; // dailyWx["2026-11-26"] = {i, max, min, p}
+  function loadWeather() {
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + encodeURIComponent(cfg.lat) +
+      '&longitude=' + encodeURIComponent(cfg.lon) +
+      '&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,is_day' +
+      '&hourly=temperature_2m,weather_code,precipitation_probability,is_day' +
+      '&daily=weather_code,sunrise,sunset,temperature_2m_max,temperature_2m_min,precipitation_probability_max' +
+      '&timezone=auto&forecast_days=7';
+    getJSON(url, function (err, j) {
+      if (err) { $('status').innerHTML = 'Météo : ' + err + ' — nouvel essai bientôt'; return; }
+      $('status').innerHTML = '';
+      var c = j.current, w = wmo(c.weather_code, !c.is_day), i;
+      $('wPlace').innerHTML = 'Météo · ' + esc(cfg.place);
+      $('wIcon').innerHTML = w[0];
+      $('wTemp').innerHTML = Math.round(c.temperature_2m) + '°';
+      $('wDesc').innerHTML = w[1] + ' · ' + Math.round(j.daily.temperature_2m_min[0]) + '° / ' + Math.round(j.daily.temperature_2m_max[0]) + '°';
+      $('wFeel').innerHTML = Math.round(c.apparent_temperature) + '°';
+      $('wWind').innerHTML = Math.round(c.wind_speed_10m) + ' km/h';
+
+      var now = Date.now() - 3600000;
+      hours = [];
+      for (i = 0; i < j.hourly.time.length && hours.length < 25; i++) {
+        var t = parseLocal(j.hourly.time[i]);
+        if (t.getTime() < now) continue;
+        hours.push({ t: t, temp: j.hourly.temperature_2m[i], pop: j.hourly.precipitation_probability[i] || 0,
+          code: j.hourly.weather_code[i], day: j.hourly.is_day[i] });
+      }
+      dailyWx = {};
+      for (i = 0; i < j.daily.time.length; i++) {
+        dailyWx[j.daily.time[i]] = { i: wmo(j.daily.weather_code[i], false)[0], max: Math.round(j.daily.temperature_2m_max[i]),
+          min: Math.round(j.daily.temperature_2m_min[i]), p: j.daily.precipitation_probability_max[i] };
+      }
+      $('sunR').innerHTML = hhmm(parseLocal(j.daily.sunrise[0]));
+      $('sunS').innerHTML = hhmm(parseLocal(j.daily.sunset[0]));
+      renderCal();
+      setTimeout(drawChart, 50);
+    });
+  }
+
+  // ---------- Calendrier TimeTree ----------
+  var calData = null, calErr = '';
+  function loadCal() {
+    if (!cfg.key) { calErr = 'Touche ⚙︎ en bas à droite et entre la clé du calendrier.'; renderCal(); return; }
+    getJSON('cal-' + encodeURIComponent(cfg.key) + '.json?t=' + Date.now(), function (err, j, status) {
+      if (err) {
+        calErr = status === 404 ? 'Calendrier introuvable : vérifie la clé dans les réglages.' : 'Calendrier : ' + err;
+        if (!calData) renderCal();
+        else $('calUpd').innerHTML = 'hors ligne · dernière version affichée';
+        return;
+      }
+      calErr = ''; calData = j; renderCal();
+    });
+  }
+
+  function evHtml(e, isToday, nowMin) {
+    var color = /^#[0-9a-fA-F]{3,8}$/.test(e.c || '') ? e.c : '#2f80d1';
+    var cls = 'ev', tm;
+    if (e.s === null) { cls += ' allday'; tm = 'Toute la journée'; }
+    else {
+      tm = e.suite ? 'jusqu’à ' + e.e.replace(':', ' h ') : e.s.replace(':', ' h ');
+      if (isToday) {
+        var s = toMin(e.s), en = toMin(e.e);
+        if (en <= nowMin && en > s) cls += ' past';
+        else if (s <= nowMin && nowMin < en) cls += ' now';
+      }
+    }
+    tm = tm.replace(/ h 00$/, ' h');
+    return '<div class="' + cls + '" style="border-left-color:' + color + '">' +
+      '<div class="tm">' + esc(tm) + (e.l ? ' · ' + esc(e.l) : '') + '</div>' +
+      '<div class="ti">' + esc(e.t) + '</div></div>';
+  }
+  function toMin(s) { var p = s.split(':'); return +p[0] * 60 + +p[1]; }
+
+  function renderCal() {
+    var box = $('cal');
+    if (!calData) { box.innerHTML = '<div id="calMsg">' + esc(calErr || 'Chargement…') + '</div>'; return; }
+    var n = cfg.days === '3' ? 3 : 5, today = new Date(), nowMin = today.getHours() * 60 + today.getMinutes();
+    box.className = 'row f1' + (n === 3 ? ' n3' : '');
+    var html = '', k;
+    for (k = 0; k < n; k++) {
+      var d = addDays(today, k), key = ymd(d), wx = dailyWx[key];
+      var name = k === 0 ? 'Aujourd’hui' : k === 1 ? 'Demain' : cap(JOURS[d.getDay()]);
+      html += '<div class="dcol f1 col' + (k === 0 ? ' today' : '') + '" data-d="' + key + '">' +
+        '<div class="dhead"><div class="dname">' + name + '</div><div class="dsub">' + d.getDate() + ' ' + MOIS[d.getMonth()] + '</div>' +
+        '<div class="dsub">' + (wx ? wx.i + ' ' + wx.max + '° / ' + wx.min + '°' + (wx.p >= 40 ? ' · 💧' + wx.p + ' %' : '') : '&nbsp;') + '</div></div><div class="evs f1">';
+      var list = [], i;
+      for (i = 0; i < calData.evenements.length; i++) if (calData.evenements[i].d === key) list.push(calData.evenements[i]);
+      if (!list.length) html += '<div class="empty">Rien de prévu</div>';
+      for (i = 0; i < list.length; i++) html += evHtml(list[i], k === 0, nowMin);
+      html += '</div></div>';
+    }
+    box.innerHTML = html;
+    fitColumns();
+    var m = Math.round((Date.now() - parseLocal(calData.maj).getTime()) / 60000);
+    $('calUpd').innerHTML = 'TimeTree · mis à jour ' + (m < 2 ? 'à l’instant' : m < 60 ? 'il y a ' + m + ' min' : 'il y a ' + Math.round(m / 60) + ' h');
+  }
+
+  // Si une journée a trop d'événements, on cache les derniers et on affiche « + N autres »
+  function fitColumns() {
+    if (window.innerWidth <= 700) return; // sur téléphone, la page défile : on montre tout
+    var cols = $('cal').getElementsByClassName('evs');
+    for (var c = 0; c < cols.length; c++) {
+      var col = cols[c], evs = col.getElementsByClassName('ev'), hidden = 0;
+      if (!col.clientHeight) continue;
+      // les événements passés d'aujourd'hui partent en premier
+      while (col.scrollHeight > col.clientHeight + 2 && evs.length > 1) {
+        var victim = col.querySelector('.ev.past') || evs[evs.length - 1];
+        col.removeChild(victim); hidden++;
+        var more = col.getElementsByClassName('more')[0];
+        if (!more) { more = document.createElement('div'); more.className = 'more'; col.appendChild(more); }
+        more.innerHTML = '+ ' + hidden + ' autre' + (hidden > 1 ? 's' : '');
+      }
+    }
+  }
+
+  // ---------- Graphique 24 h ----------
+  function drawChart() {
+    if (!hours.length) return;
+    var cv = $('chart'), box = $('chartBox');
+    var ratio = window.devicePixelRatio || 1, W = box.clientWidth, H = box.clientHeight;
+    if (!W || !H) return;
+    cv.width = W * ratio; cv.height = H * ratio;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    var ctx = cv.getContext('2d');
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    var n = hours.length, top = 30, bot = 18, padX = 16, cw = (W - 2 * padX) / n, ch = H - top - bot, mn = 999, mx = -999, i;
+    for (i = 0; i < n; i++) { mn = Math.min(mn, hours[i].temp); mx = Math.max(mx, hours[i].temp); }
+    if (mx - mn < 4) { mn -= 2; mx += 2; }
+    function ty(v) { return top + 16 + (1 - (v - mn) / (mx - mn)) * (ch - 20); }
+    function tx(k) { return padX + k * cw + cw / 2; }
+    ctx.fillStyle = 'rgba(74,144,217,0.08)';
+    // Nuit : une seule bande par nuit (évite les lignes entre les heures)
+    for (i = 0; i < n; i++) {
+      if (hours[i].day) continue;
+      var j0 = i; while (i + 1 < n && !hours[i + 1].day) i++;
+      ctx.fillRect(Math.round(padX + j0 * cw), top, Math.round((i - j0 + 1) * cw), ch);
+    }
+    for (i = 0; i < n; i++) {
+      var ph = hours[i].pop / 100 * ch * 0.6;
+      if (ph > 0) { ctx.fillStyle = 'rgba(74,144,217,0.35)'; ctx.fillRect(padX + i * cw + cw * 0.2, top + ch - ph, cw * 0.6, ph); }
+    }
+    ctx.strokeStyle = '#f0a030'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    for (i = 0; i < n; i++) { if (i === 0) ctx.moveTo(tx(i), ty(hours[i].temp)); else ctx.lineTo(tx(i), ty(hours[i].temp)); }
+    ctx.stroke();
+    var every = W < 450 ? 6 : 4;
+    ctx.textAlign = 'center';
+    for (i = 0; i < n; i += every) {
+      var x = tx(i), y = ty(hours[i].temp);
+      ctx.fillStyle = '#f0a030'; ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#1d2b3a'; ctx.font = '14px -apple-system, Helvetica, Arial';
+      ctx.fillText(Math.round(hours[i].temp) + '°', x, y - 8);
+      ctx.font = '18px -apple-system, Helvetica, Arial';
+      ctx.fillText(wmo(hours[i].code, !hours[i].day)[0], x, 20);
+      ctx.font = '11px -apple-system, Helvetica, Arial'; ctx.fillStyle = '#64758a';
+      ctx.fillText(i === 0 ? 'maint.' : pad(hours[i].t.getHours()) + ' h', x, H - 4);
+    }
+    ctx.textAlign = 'left';
+  }
+
+  // ---------- Lune ----------
+  function updateMoon() {
+    var syn = 29.530588853, ref = Date.UTC(2000, 0, 6, 18, 14);
+    var age = ((Date.now() - ref) / 86400000) % syn; if (age < 0) age += syn;
+    var names = [['🌑', 'Nouvelle lune'], ['🌒', 'Premier croissant'], ['🌓', 'Premier quartier'], ['🌔', 'Gibbeuse croissante'],
+      ['🌕', 'Pleine lune'], ['🌖', 'Gibbeuse décroissante'], ['🌗', 'Dernier quartier'], ['🌘', 'Dernier croissant']];
+    var idx = Math.floor((age / syn) * 8 + 0.5) % 8;
+    $('moonI').innerHTML = names[idx][0];
+    $('moon').innerHTML = names[idx][1];
+  }
+
+  // ---------- Tâches du jour (HomeFlow) ----------
+  // GET  {turl}/tasks?date=AAAA-MM-JJ      -> {"tasks":[{"id","title","assignee","time","checked","color"}]}
+  // POST {turl}/tasks/complete {id, date, checked} -> {"ok":true}
+  var tasks = [], tasksDate = '', busy = {}, nBusy = 0, demo = false;
+
+  function sendJSON(method, url, body, cb) {
+    var r = new XMLHttpRequest();
+    r.open(method, url, true);
+    r.timeout = 15000;
+    r.setRequestHeader('Authorization', 'Bearer ' + cfg.ttok);
+    if (body) r.setRequestHeader('Content-Type', 'application/json');
+    r.onreadystatechange = function () {
+      if (r.readyState !== 4) return;
+      if (r.status >= 200 && r.status < 300) {
+        var d = null; try { d = JSON.parse(r.responseText); } catch (e) {}
+        cb(null, d);
+      } else { cb(r.status === 401 || r.status === 403 ? 'jeton refusé' : r.status ? 'erreur ' + r.status : 'pas de connexion'); }
+    };
+    r.ontimeout = function () { cb('délai dépassé'); };
+    r.send(body ? JSON.stringify(body) : null);
+  }
+
+  function demoTasks() {
+    return [
+      { id: 'd1', title: 'Vider le lave-vaisselle', icon: '🧹', assignee: 'Léo', checked: true },
+      { id: 'd2', title: 'Nourrir le chat', icon: '📋', assignee: 'Emma', checked: true },
+      { id: 'd3', title: 'Sortir le recyclage', icon: '📋', assignee: null, checked: false },
+      { id: 'd4', title: 'Préparer les lunchs', icon: '🍳', assignee: 'Papa', status: 'in_progress', checked: false },
+      { id: 'd5', title: 'Arroser les plantes', icon: '🌿', assignee: 'Maman', checked: false },
+      { id: 'd6', title: 'Plier le linge', icon: '👕', assignee: 'Emma', checked: false }
+    ];
+  }
+
+  function loadTasks() {
+    var date = ymd(new Date());
+    if (!cfg.turl || !cfg.ttok) {
+      demo = true;
+      if (tasksDate !== date) { tasks = demoTasks(); tasksDate = date; }
+      renderTasks(); return;
+    }
+    demo = false;
+    if (nBusy > 0) return; // on attend la fin d'un cochage avant de relire
+    sendJSON('GET', cfg.turl + '/tasks?date=' + date + '&t=' + Date.now(), null, function (err, j) {
+      if (err) { setTaskStatus('Tâches : ' + err); if (tasksDate !== date) { tasks = []; tasksDate = date; renderTasks(); } return; }
+      if (nBusy > 0) return;
+      setTaskStatus('');
+      tasks = (j && j.tasks) || []; tasksDate = date;
+      renderTasks();
+    });
+  }
+  var taskErr = '';
+  function setTaskStatus(m) { taskErr = m; $('status').innerHTML = m; }
+
+  function renderTasks() {
+    $('taskDemo').innerHTML = demo ? '· DÉMO' : '';
+    var todo = [], done = [], i;
+    for (i = 0; i < tasks.length; i++) (tasks[i].checked ? done : todo).push(tasks[i]);
+    var total = tasks.length;
+    $('taskCount').innerHTML = total ? '<b>' + done.length + '</b> / ' + total + ' faite' + (done.length > 1 ? 's' : '') : '';
+    $('taskFill').style.width = total ? Math.round(done.length / total * 100) + '%' : '0';
+    var list = todo.concat(done), html = '';
+    if (!total) html = '<div class="empty">' + (taskErr ? esc(taskErr) : 'Aucune tâche aujourd’hui') + '</div>';
+    for (i = 0; i < list.length; i++) {
+      var t = list[i], meta = [];
+      if (t.time) meta.push(esc(t.time.replace(':', ' h ').replace(/ h 00$/, ' h')));
+      if (t.assignee) meta.push(esc(t.assignee));
+      if (t.status === 'in_progress' && !t.checked) meta.push('<span style="color:#4a90d9">en cours</span>');
+      html += '<div class="task' + (t.checked ? ' done' : '') + (busy[t.id] ? ' busy' : '') + '" data-id="' + esc(t.id) + '">' +
+        '<div class="box">' + (t.checked ? '✓' : '') + '</div><div class="f1">' +
+        '<div class="tt">' + (t.icon ? esc(t.icon) + ' ' : '') + esc(t.title) + '</div>' + (meta.length ? '<div class="tm2">' + meta.join(' · ') + '</div>' : '') + '</div></div>';
+    }
+    if (total && !todo.length) html = '<div class="alldone">🎉 Tout est fait pour aujourd’hui !</div>' + html;
+    $('tasks').innerHTML = html;
+  }
+
+  function findTask(id) { for (var i = 0; i < tasks.length; i++) if (tasks[i].id === id) return tasks[i]; return null; }
+
+  function toggleTask(id) {
+    var t = findTask(id);
+    if (!t || busy[id]) return;
+    t.checked = !t.checked;                 // affichage immédiat
+    t.status = t.checked ? 'completed' : 'pending';
+    if (demo) { renderTasks(); return; }
+    busy[id] = true; nBusy++; renderTasks();
+    sendJSON('POST', cfg.turl + '/tasks/complete', { id: id, date: tasksDate, checked: t.checked }, function (err) {
+      busy[id] = false; nBusy--;
+      if (err) { t.checked = !t.checked; t.status = t.checked ? 'completed' : 'pending'; setTaskStatus('Pas pu enregistrer « ' + t.title + ' » : ' + err); }
+      else setTaskStatus('');
+      renderTasks();
+    });
+  }
+
+  // Un seul toucher suffit (pas de délai de 300 ms sur le vieux Safari)
+  var touchY = 0, moved = false;
+  $('tasks').addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; moved = false; }, false);
+  $('tasks').addEventListener('touchmove', function (e) { if (Math.abs(e.touches[0].clientY - touchY) > 10) moved = true; }, false);
+  function taskFromEvent(e) {
+    var el = e.target;
+    while (el && el !== this && !(el.className && /\btask\b/.test(el.className))) el = el.parentNode;
+    return el && el.getAttribute ? el.getAttribute('data-id') : null;
+  }
+  $('tasks').addEventListener('touchend', function (e) {
+    if (moved) return;
+    var id = taskFromEvent.call(this, e);
+    if (id) { e.preventDefault(); toggleTask(id); }
+  }, false);
+  $('tasks').addEventListener('click', function (e) { var id = taskFromEvent.call(this, e); if (id) toggleTask(id); }, false);
+
+  // ---------- Réglages ----------
+  var pendingDays = '5';
+  function showSeg() {
+    $('s_n3').className = pendingDays === '3' ? 'on' : '';
+    $('s_n5').className = pendingDays === '5' ? 'on' : '';
+  }
+  $('s_n3').onclick = function () { pendingDays = '3'; showSeg(); };
+  $('s_n5').onclick = function () { pendingDays = '5'; showSeg(); };
+  $('gear').onclick = function () {
+    $('s_place').value = cfg.place; $('s_lat').value = cfg.lat; $('s_lon').value = cfg.lon; $('s_key').value = cfg.key; $('s_turl').value = cfg.turl; $('s_ttok').value = cfg.ttok;
+    pendingDays = cfg.days; showSeg();
+    $('settings').style.display = 'block';
+  };
+  $('s_cancel').onclick = function () { $('settings').style.display = 'none'; };
+  $('s_save').onclick = function () {
+    function v(id) { return $(id).value.replace(/^\s+|\s+$/g, ''); }
+    cfg.place = v('s_place') || DEFAULTS.place;
+    cfg.lat = v('s_lat').replace(',', '.') || DEFAULTS.lat;
+    cfg.lon = v('s_lon').replace(',', '.') || DEFAULTS.lon;
+    cfg.key = v('s_key');
+    cfg.turl = v('s_turl').replace(/\/+$/, '');
+    cfg.ttok = v('s_ttok');
+    cfg.days = pendingDays;
+    saveCfg(); $('settings').style.display = 'none';
+    loadWeather(); loadCal(); renderCal(); loadTasks();
+  };
+  document.addEventListener('touchstart', function () { wakeUntil = Date.now() + 60000; }, false);
+  document.addEventListener('click', function () { wakeUntil = Date.now() + 60000; }, false);
+
+  // ---------- Démarrage ----------
+  loadCfg();
+  tickClock(); updateMoon(); loadWeather(); loadCal(); loadTasks();
+  setInterval(loadTasks, 60 * 1000);
+  setInterval(tickClock, 1000);
+  setInterval(loadWeather, 15 * 60 * 1000);
+  setInterval(loadCal, 10 * 60 * 1000);
+  setInterval(updateMoon, 60 * 60 * 1000);
+  window.addEventListener('resize', function () { setTimeout(function () { drawChart(); renderCal(); }, 300); }, false);
+  // Au retour en avant-plan (iPad réveillé), on rafraîchit tout de suite
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) { loadTasks(); loadCal(); } }, false);
+  // Recharge chaque nuit à 3 h (nouvelle version de la page + vieux Safari en forme)
+  setInterval(function () { var d = new Date(); if (d.getHours() === 3 && d.getMinutes() === 0) location.reload(); }, 60000);
+})();
+</script>
+</body>
+</html>
